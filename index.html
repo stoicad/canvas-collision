@@ -45,7 +45,7 @@
       width: width,
       height: height,
       fill: '#4898F7',
-      name: 'fillShape',
+      name: 'rectangle',
     });
     group.add(shape);
 
@@ -66,21 +66,21 @@
 
     layer.add(createShape(200, 400));
     layer.add(createShape(200, 400));
-    layer.add(createShape(410, 200));
+    layer.add(createShape(409, 200));
 
   layer.on('dragmove', function (e) {
     var target = e.target;
     var targetRect = e.target.getClientRect();
-    target.findOne('.fillShape').fill('#4898F7');
+    target.findOne('.rectangle').fill('#4898F7');
     layer.children.forEach(function (group) {
       // do not check intersection with itself
       if (group === target) {
         return;
       }
       if (haveIntersection(group.getClientRect(), targetRect)) {
-        group.findOne('.fillShape').fill('red');
+        group.findOne('.rectangle').fill('red');
       } else {
-        group.findOne('.fillShape').fill('#4898F7');
+        group.findOne('.rectangle').fill('#4898F7');
       }
       setTimeout(function(){}, 150);
       snap(group, target)
@@ -105,7 +105,7 @@
     var dx = destination.x;
     var dy = destination.y;
 
-        if (tx > dx + destination.width && tx < dx + destination.width + 20) {
+        if (tx > dx + destination.width && tx < dx + destination.width + 30) {
           target.position(
             {
                   x: dx + destination.width + 3,
@@ -114,7 +114,7 @@
           )
         }
 
-        if (tx + targetRect.width + 20 > dx && tx + targetRect.width < dx ) {
+        if (tx + targetRect.width + 30 > dx && tx + targetRect.width < dx ) {
           target.position(
             {
                   x: dx - targetRect.width + 5,
@@ -123,7 +123,7 @@
           )
         }
 
-        if (ty < dy + destination.height + 20 && ty > dy + destination.height ) {
+        if (ty < dy + destination.height + 30 && ty > dy + destination.height ) {
           target.position(
             {
                   x: tx,
@@ -132,7 +132,7 @@
           )
         }
 
-        if (ty + targetRect.height < dy + 20 && ty + targetRect.height > dy ) {
+        if (ty + targetRect.height + 30 > dy && ty + targetRect.height < dy ) {
           target.position(
             {
                   x: tx,
