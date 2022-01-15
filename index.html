@@ -75,7 +75,9 @@
   layer.on('dragmove', function (e) {
     var target = e.target;
     var targetRect = e.target.getClientRect();
+    //set original color when dragging
     target.findOne('.rectangle').fill('#A8D9F7');
+    
     layer.children.forEach(function (group) {
       // do not check intersection with itself
       if (group === target) {
