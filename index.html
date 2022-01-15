@@ -71,6 +71,7 @@
   layer.on('dragmove', function (e) {
     var target = e.target;
     var targetRect = e.target.getClientRect();
+    target.findOne('.fillShape').fill('#4898F7');
     layer.children.forEach(function (group) {
       // do not check intersection with itself
       if (group === target) {
@@ -81,6 +82,7 @@
       } else {
         group.findOne('.fillShape').fill('#4898F7');
       }
+      setTimeout(function(){}, 150);
       snap(group, target)
     });
   });
@@ -106,7 +108,7 @@
         if (tx > dx + destination.width && tx < dx + destination.width + 20) {
           target.position(
             {
-                  x: dx + destination.width + 2,
+                  x: dx + destination.width + 3,
                   y: ty
             }
           )
@@ -120,5 +122,25 @@
             }
           )
         }
+
+        if (ty < dy + destination.height + 20 && ty > dy + destination.height ) {
+          target.position(
+            {
+                  x: tx,
+                  y: dy + destination.height + 3
+            }
+          )
+        }
+
+        if (ty + targetRect.height < dy + 20 && ty + targetRect.height > dy ) {
+          target.position(
+            {
+                  x: tx,
+                  y: dy - targetRect.height + 5
+            }
+          )
+        }
       }
+
+
 </script>
