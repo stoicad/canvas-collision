@@ -105,7 +105,7 @@
     var dx = destination.x;
     var dy = destination.y;
 
-        if (tx > dx + destination.width && tx < dx + destination.width + 30) {
+        if (tx > dx + destination.width && tx < dx + destination.width + 40) {
           target.position(
             {
                   x: dx + destination.width + 3,
@@ -114,7 +114,7 @@
           )
         }
 
-        if (tx + targetRect.width + 30 > dx && tx + targetRect.width < dx ) {
+        if (tx + targetRect.width + 40 > dx && tx + targetRect.width < dx ) {
           target.position(
             {
                   x: dx - targetRect.width + 5,
@@ -123,7 +123,7 @@
           )
         }
 
-        if (ty < dy + destination.height + 30 && ty > dy + destination.height ) {
+        if (ty < dy + destination.height + 40 && ty > dy + destination.height ) {
           target.position(
             {
                   x: tx,
@@ -132,7 +132,7 @@
           )
         }
 
-        if (ty + targetRect.height + 30 > dy && ty + targetRect.height < dy ) {
+        if (ty + targetRect.height + 40 > dy && ty + targetRect.height < dy ) {
           target.position(
             {
                   x: tx,
