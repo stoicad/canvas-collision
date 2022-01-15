@@ -44,7 +44,7 @@
     var shape = new Konva.Rect({
       width: width,
       height: height,
-      fill: '#DDEDF5',
+      fill: '#A8D9F7',
       name: 'rectangle',
     });
     group.add(shape);
@@ -75,7 +75,7 @@
   layer.on('dragmove', function (e) {
     var target = e.target;
     var targetRect = e.target.getClientRect();
-    target.findOne('.rectangle').fill('#DDEDF5');
+    target.findOne('.rectangle').fill('#A8D9F7');
     layer.children.forEach(function (group) {
       // do not check intersection with itself
       if (group === target) {
@@ -84,7 +84,7 @@
       if (haveIntersection(group.getClientRect(), targetRect)) {
         group.findOne('.rectangle').fill('red');
       } else {
-        group.findOne('.rectangle').fill('#DDEDF5');
+        group.findOne('.rectangle').fill('#A8D9F7');
       }
       setTimeout(function(){}, 150);
       snap(group, target)
