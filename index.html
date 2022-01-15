@@ -81,6 +81,7 @@
       } else {
         group.findOne('.fillShape').fill('#4898F7');
       }
+      snap(group, target)
     });
   });
 
@@ -92,4 +93,32 @@
       r2.y + r2.height < r1.y
     );
   }
+
+  function snap(group, target) {
+    var destination = group.getClientRect();
+    var targetRect = target.getClientRect();
+    var tx = target.x();
+    var ty = target.y();
+
+    var dx = destination.x;
+    var dy = destination.y;
+
+        if (tx > dx + destination.width && tx < dx + destination.width + 20) {
+          target.position(
+            {
+                  x: dx + destination.width + 2,
+                  y: ty
+            }
+          )
+        }
+
+        if (tx + targetRect.width + 20 > dx && tx + targetRect.width < dx ) {
+          target.position(
+            {
+                  x: dx - targetRect.width + 5,
+                  y: ty
+            }
+          )
+        }
+      }
 </script>
